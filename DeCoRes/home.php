@@ -7,6 +7,8 @@
 </head>
 
 <body>
+
+
 <?php  if(isset($_SESSION['user'])) { ?>
 <a href="logout.php">
 <button class="btn btn-primary btn-xs" type="button" > Logout </button>
@@ -25,7 +27,9 @@
     <div class="jumbotron">
         <h2> Início </h2>
         <p>O que está acontecendo nas redes sociais: </p>
-        
+      
+
+
             </div>
         </div>
     </div>
