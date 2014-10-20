@@ -610,10 +610,10 @@ h6,
 .page-header {
 	padding-bottom: 9px;
 	margin: 10px 0 20px;
-	border-bottom: 1px solid #282828;
+	border-bottom: 2px solid #ffffff;
 	margin-left: 40px;
-	height: 90px;
-	background-image: url(../imgs/header3.png);
+	height: 200px;
+	background-image: url(../imgs/header5.png);
 	background-repeat: no-repeat;
 }
 
