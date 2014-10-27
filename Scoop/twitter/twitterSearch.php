@@ -46,7 +46,7 @@ $(document).ready(function() {
 		var tweets = "20";
 		
 		
-		$.get('http://www.projetokristy.com.br/ProjetoDesenv/twitter_api.php?type=search&searchtype=' + searchtype + '&q=' + encodeURIComponent(keyword) + '&count=' + tweets, function (jsondata) {
+		$.get('http://www.projetokristy.com.br/Scoop/twitter/twitter_api.php?type=search&searchtype=' + searchtype + '&q=' + encodeURIComponent(keyword) + '&count=' + tweets, function (jsondata) {
 		
 			// Parse JSON
 			var data = $.parseJSON(jsondata);
