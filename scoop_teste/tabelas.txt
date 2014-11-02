@@ -1,0 +1,19 @@
+create table usuario(
+
+cod_user int primary key auto_increment,
+nome varchar(100),
+idade int(10),
+sexo varchar(50),
+email varchar(100),
+login varchar(100),
+senha varchar(150),
+is_admin char(1)
+
+);
+
+create table hist_pesq(
+
+fk_cod_user int references usuario(cod_user),
+pesquisa varchar(100)
+
+)
