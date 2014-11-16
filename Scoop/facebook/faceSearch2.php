@@ -62,33 +62,17 @@ foreach($json_o->data as $p)
 		
 
 
-
- echo"  <div class='col-lg-42'>
-
-    <div class='panel panel-primary'>
-        <div class='panel-heading'>
-            <h3 class='panel-title'> Nome: $username </h3>
-        </div>
-        <div class='panel-body'>  
-          
-           <table width='200'  class='table table-striped table-bordered table-hover'>
-		   <tbody>
-    <tr>
-    <td>MENSAGEM: $text </td>
-	<td>DATA: $timestamp</td>
 	
-	
-  </tr>
- 
-  </tbody>
-</table>
-      
+ echo" <div class='alert alert-dismissable alert-info'>
+  
+  $text
+</div>
         </div>
     </div>";}?>
 	<a href="face.php" ><img src="../imgs/arrow_back_blue_2.png" width="50" >  </a>
+
 </body>
 </html>
-
 		<?php
 
 include '../conexao.php';
@@ -100,3 +84,5 @@ mysql_query($query);
 $id = mysql_insert_id();
 
 ?>
+
+

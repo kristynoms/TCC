@@ -59,6 +59,7 @@ foreach($json_o->data as $p)
 		$date_source = strtotime($tempo);
         $timestamp = date('d-m-Y H:i:s', $date_source);
 		
+
  echo"  <div class='col-lg-42'>
 
     <div class='panel panel-primary'>
@@ -84,3 +85,18 @@ foreach($json_o->data as $p)
 	<a href="face.php" ><img src="../imgs/arrow_back_blue_2.png" width="50" >  </a>
 </body>
 </html>
+
+		<?php
+
+include '../conexao.php';
+$query = "INSERT INTO fb 
+ 
+VALUES ('$username','$text','$timestamp')";
+
+mysql_query($query);
+
+
+
+
+
+?>

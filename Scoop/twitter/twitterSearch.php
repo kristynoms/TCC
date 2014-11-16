@@ -32,7 +32,17 @@
 <?php 
  include("getSearchResults2.html");
 ?>
+	<?php
 
+include '../conexao.php';
+$query = "INSERT INTO pesquisasTT (pesquisa) 
+ 
+VALUES ('$pesquisa')";
+
+mysql_query($query);
+$id = mysql_insert_id();
+
+?>
 <a href="twitter.php" ><img src="../imgs/arrow_back_blue_2.png" width="50" >  </a>
 
 <script type="text/javascript">

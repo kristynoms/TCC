@@ -34,7 +34,9 @@
                 <form action="faceSearch.php" method="post">
                     <div class="form-group">
                     <label class="control-label" for="inputDefault">Facebook</label>
-                    <input class="form-control" id="inputDefault" name="pesqT" type="text">
+                    <input class="form-control" id="inputDefault" name="pesqT" placeholder="Pesquisa" type="text">
+					<br>
+					<input class="form-control" id="inputDefault" name="limit" placeholder="Numero de posts" type="text">
                     <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-2">
                             <button class="btn btn-default" type="reset">Cancel</button>

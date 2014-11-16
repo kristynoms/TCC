@@ -43,7 +43,7 @@ error_reporting(0);
 $type = 'post';
 $limit = urlencode($_POST['limit']);
 $retrive = $facebook->api('/search?q='.$query.'&type='.$type.'&limit='.$limit);
-$pesq = $query;
+
 $string= json_encode($retrive );
 $json_a = json_decode($string, true);
 $json_o = json_decode($string);
@@ -63,40 +63,16 @@ foreach($json_o->data as $p)
 
 
 
- echo"  <div class='col-lg-42'>
-
-    <div class='panel panel-primary'>
-        <div class='panel-heading'>
-            <h3 class='panel-title'> Nome: $username </h3>
-        </div>
-        <div class='panel-body'>  
-          
-           <table width='200'  class='table table-striped table-bordered table-hover'>
-		   <tbody>
-    <tr>
-    <td>MENSAGEM: $text </td>
-	<td>DATA: $timestamp</td>
-	
-	
-  </tr>
- 
-  </tbody>
-</table>
-      
+mysql_query($query);	
+ echo" <div class='alert alert-dismissable alert-info'>
+  
+  $text
+</div>
         </div>
     </div>";}?>
 	<a href="face.php" ><img src="../imgs/arrow_back_blue_2.png" width="50" >  </a>
+
 </body>
 </html>
 
-		<?php
 
-include '../conexao.php';
-$query = "INSERT INTO pesquisasFB (pesquisa) 
- 
-VALUES ('$pesq')";
-
-mysql_query($query);
-$id = mysql_insert_id();
-
-?>

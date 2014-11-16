@@ -36,7 +36,6 @@
                     <label class="control-label" for="inputDefault">Facebook</label>
                     <input class="form-control" id="inputDefault" name="pesqT" placeholder="Pesquisa" type="text">
 					<br>
-				<label for="inputDefault" class="col-lg-2 control-label">Posts</label>
 					<input class="form-control" id="inputDefault" name="limit" placeholder="Numero de posts" type="text">
                     <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-2">

@@ -8,7 +8,7 @@
 	
   }
   
-  if(!mysql_select_db('scoop_kristy',$conexao)){
+  if(!mysql_select_db('scoop_tcc',$conexao)){
 	echo "Erro ao Selecionar a Base de Dados";
 	exit();
   }
