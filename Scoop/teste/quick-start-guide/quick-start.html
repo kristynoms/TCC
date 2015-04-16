@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Quick Start Guide: PHP Twitter User Timeline & Search Plugin</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Quick Start Guide &rdquo; Documentation by &ldquo;CA Webstore&rdquo; v1.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;PHP Twitter User Timeline & Search Plugin&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 10/02/2013<br>
+					By: CA Webstore<br>
+					Email: <a href="mailto:youremail@yourdomain.com">support@democode.net</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing my plugin. If you have any questions that are beyond the scope of this help file or full documentation found <a href="http://www.democode.net/twitter-plugin/documentation/index.html">here</a>, please feel free to email via my user page contact form <a href="http://codecanyon.net/user/cawebstore">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li>A: <a href="#Installation">Installation</a></li>
+            <li>B: <a href="#phpCode">PHP Code Explanation</a></li>
+		  <li>C: <a href="#cssFiles">CSS Files and Structure</a></li>
+		</ol>
+		
+		<hr>
+		
+		<h3 id="Installation"><strong>A) Installation</strong> - <a href="#toc">top</a></h3>
+		<ul>
+        <li>Uncompress the zipped file</li>
+        <li>Upload the content to where you want to install the script</li>
+        <li>Change folder permission to 777 for caches</li>
+        <li>Edit the twitter_config.php with your <a href="https://dev.twitter.com/" target="_blank">Twitter API</a> credentials and modify the path of the install and 'caches' directory if necessary. Values that need and may need to be edited:</li>
+        </ul>
+        <p><div><code>
+        <span style="color: #0000BB">define(</span><span style="color: #DD0000">'TWITTER_API_PKG_DIR'</span>,<span style="color: #DD0000">'/'</span><span style="color: #0000BB">);</span><br>
+        <span style="color: #0000BB">define(</span><span style="color: #DD0000">'TWITTER_CONSUMER_KEY'</span>, <span style="color: #DD0000">'*Consumer key'</span><span style="color: #0000BB">);</span><br>
+        <span style="color: #0000BB">define(</span><span style="color: #DD0000">'TWITTER_CONSUMER_SECRET'</span>, <span style="color: #DD0000">'*Consumer secret'</span><span style="color: #0000BB">);</span><br>
+        <span style="color: #0000BB">define(</span><span style="color: #DD0000">'TWITTER_ACCESS_TOKEN'</span>, <span style="color: #DD0000">'*Access token'</span><span style="color: #0000BB">);</span><br>
+        <span style="color: #0000BB">define(</span><span style="color: #DD0000">'TWITTER_ACCESS_TOKEN_SECRET'</span>, <span style="color: #DD0000">'*Access token secret'</span><span style="color: #0000BB">);</span><br>
+        <span style="color: #0000BB">define(</span><span style="color: #DD0000">'TWITTER_CACHE_FOLDER'</span>, <span style="color: #DD0000">'twitter_api_pkg/caches/twitter-'</span><span style="color: #0000BB">);</span><br>
+        <span style="color: #0000BB">define(</span><span style="color: #DD0000">'TWITTER_CACHE_SEARCH_FOLDER'</span>, <span style="color: #DD0000">'twitter_api_pkg/caches/twitter-'</span><span style="color: #0000BB">);</span><br>
+        </div></code></p>
+        <p><strong>Other paths in code that may need to be changed:</strong><br /><br />In index.php</p>
+        <div><code>
+        <span style="color: #057910">require_once</span> <span style="color: #DD0000">&quot;twitter_api_pkg/twitter_config.php&quot;</span>;<br>
+        <span style="color: #057910">require_once</span> <span style="color: #DD0000">&quot;twitter_api_pkg/classes/twitterapirequest.php&quot;</span>;<br>
+        <span style="color: #057910">require_once</span> <span style="color: #DD0000">&quot;twitter_api_pkg/functions/twitter_user_timeline.php&quot;</span>;<br>
+        <span style="color: #057910">require_once</span> <span style="color: #DD0000">&quot;twitter_api_pkg/functions/twitter_search.php&quot;</span>;
+        </div></code>
+      <p><br />Or in jquery_example.php</p>
+       <div><code>
+        <span style="color: #057910">require_once</span> <span style="color: #DD0000">&quot;twitter_api_pkg/twitter_config.php&quot;</span>;<br>
+        <span style="color: #057910">require_once</span> <span style="color: #DD0000">&quot;twitter_api_pkg/functions/twitter_user_timeline.php&quot;</span>;<br>
+        <span style="color: #057910">require_once</span> <span style="color: #DD0000">&quot;twitter_api_pkg/functions/twitter_search.php&quot;</span>;
+      </div></code>
+     <h3 id="phpCode"><strong>B) PHP Code Explanation</strong> - <a href="#toc">top</a></h3>
+     <p>In index.php, the line below generates the Twitter search form:</p>
+     <div><code><span style="color: #0a59bb">echo</span> twitter_generate_search_form(<span style="color: #DD0000">'index.php'</span>,<span style="color: #057910">true</span>,<span style="color: #057910">true</span>,<span style="color: #057910">true</span>,<span style="color: #057910">true</span>,<span style="color: #0a59bb">$_GET</span>);<br /><br />and the line below shows the actual Twitter search results after the form is submitted:<br /><br /><span style="color: #0a59bb">echo</span> twitter_search_php(<span style="color: #0a59bb">$_GET</span>);</div></code>
+     <p>In index.php, the line below generates the Twitter user timeline for the example 'google' (replace 'google' with the Twitter screen name that you'd like to display tweets for):<br /></p>
+     <div><code><span style="color: #0a59bb">echo</span> twitter_user_timeline_php(<span style="color: #DD0000">'google'</span>);</div></code>
+
+ <p>In index.php, the line below generates a predifined Twitter search results for the example 'New York' (replace 'New York' with the Twitter search term that you'd like to display tweets for):<br /></p>
+ <div><code><span style="color: #0a59bb">echo</span> twitter_search_php(<span style="color: #DD0000">'New York'</span>,<span style="color: #DD0000">'en'</span>,'','');</div></code>
+ 
+  <p>In jquery_example.php, the line below generates a Twitter timeline for 'envato' (replace 'envato' with the Twitter screen name that you'd like to display tweets for):<br /></p>
+  <div><code><span style="color: #0a59bb">echo</span> twitter_user_timeline_jquery(<span style="color: #DD0000">'envato'</span>,<span style="color: #DD0000">0</span>);</div></code>
+  
+    <p>In jquery_example.php, the line below generates Twitter search results for 'traffic' (replace 'traffic' and other variables with variables that you'd like to display tweets for):<br /></p>
+  <div><code><span style="color: #0a59bb">echo</span> twitter_search_jquery(<span style="color: #DD0000">'traffic'</span>,<span style="color: #DD0000">0</span>,<span style="color: #DD0000">'en'</span>,<span style="color: #DD0000">'recent'</span>,<span style="color: #DD0000">'40.757332,-73.955556,10mi'</span>);</div></code>
+  <br /><br />
+ 
+	  <h3 id="cssFiles"><strong>C) CSS Files and Structure</strong> - <a href="#toc">top</a></h3>
+
+		<p>CSS styles for Twitter results can be found in twitter.css.<br /><br />The line below controls the styling and width of the Twitter search results box</p>
+    <pre>#twitter_search_results{
+clear:both;width:100%;margin:10px;color:#333333;
+}
+</pre>
+	<p>The line below controls the color of the links in Twitter search results</p>
+       <pre>#twitter_search_results a { 
+color:#0385b4;
+}
+</pre>
+<p>The line below controls the styling and width of the Twitter timeline box</p>
+    <pre>#timeline_tweets{
+clear:both;width:100%;margin:10px;color:#333333;
+}
+</pre>
+	<p>The line below controls the color of the links in Twitter timeline</p>
+       <pre>#timeline_tweets a { 
+color:#0385b4;
+}
+</pre>
+		
+		<p>Once again, thank you so much for purchasing this plugin. As I said at the beginning, I'd be glad to help you if you have any questions relating to this plugin. No guarantees, but I'll do my best to assist. If you'd like to dig deeper into the functionality of this plugin, please read the full documenation <a href="http://www.democode.net/twitter-plugin/documentation/index.html">here</a>. If you have a more general question relating to the scripts available on CodeCanyon, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p> 
+		
+		<p class="append-bottom alt large"><strong>CA Webstore</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>

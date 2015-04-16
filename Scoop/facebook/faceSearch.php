@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Home</title>
+<title>Facebook</title>
 <link href="../css/estilo.css" rel="stylesheet" type="text/css" />
 
 </head>
@@ -36,7 +36,7 @@ error_reporting(0);
     'secret' => '1ffa8177f323919ccb39fc3de6acaa96',
     'allowSignedRequest' => false // optional but should be set to false for non-canvas apps
   );
-
+	
   $facebook = new Facebook($config);
   $user_id = $facebook->getUser();
  $query = urlencode($_POST['pesqT']);
@@ -89,14 +89,14 @@ foreach($json_o->data as $p)
 </body>
 </html>
 
-		<?php
-
+<?php
+ session_start();
+ 	$user = $_SESSION['user'];
 include '../conexao.php';
-$query = "INSERT INTO pesquisasFB (pesquisa) 
+$query = "INSERT INTO pesquisas_audit (pesquisa,usuario) 
  
-VALUES ('$pesq')";
+VALUES ('$pesq','$user')";
 
 mysql_query($query);
-$id = mysql_insert_id();
 
 ?>

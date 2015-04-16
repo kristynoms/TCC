@@ -1,0 +1,391 @@
+﻿<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	
+	<title>Full Documentation: PHP Twitter User Timeline & Search Plugin</title>
+	
+	<meta name="description" content="Thank you for purchasing my script. If you have any questions that are beyond the scope of this help file, please feel free to email via Codecanyon. Thanks so much!">
+	<meta name="copyright" content="Democode.net">
+	<meta name="date" content="2013-10-02T00:00:00+01:00">
+	
+	<link rel="stylesheet" href="css/documenter_style.css" media="all">
+	
+	
+	<script src="js/jquery.1.6.4.js"></script>
+	
+	<script src="js/jquery.scrollTo-1.4.2-min.js"></script>
+	<script src="js/jquery.easing.js"></script>
+	
+	
+	<script>document.createElement('section');var duration=500,easing='swing';</script>
+	<script src="js/script.js"></script>
+	
+	<style>
+		html{background-color:#FFFFFF;color:#383838;}
+		::-moz-selection{background:#444444;color:#DDDDDD;}
+		::selection{background:#444444;color:#DDDDDD;}
+		#documenter_sidebar #documenter_logo{background-image:url(assets/images/image_1.png);}
+		a{color:#0000FF;}
+		hr{border-top:1px solid #EBEBEB;border-bottom:1px solid #FFFFFF;}
+		#documenter_sidebar, #documenter_sidebar ol a{background-color:#DDDDDD;color:#222222;}
+		#documenter_sidebar ol a{-webkit-text-shadow:1px 1px 0px #EEEEEE;-moz-text-shadow:1px 1px 0px #EEEEEE;text-shadow:1px 1px 0px #EEEEEE;}
+		#documenter_sidebar ol{border-top:1px solid #AAAAAA;}
+		#documenter_sidebar ol a{border-top:1px solid #EEEEEE;border-bottom:1px solid #AAAAAA;color:#444444;}
+		#documenter_sidebar ol a:hover{background:#444444;color:#DDDDDD;border-top:1px solid #444444;}
+		#documenter_sidebar ol a.current{background:#444444;color:#DDDDDD;border-top:1px solid #444444;}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+	</style>
+	
+</head>
+<body>
+	<div id="documenter_sidebar">
+		<a href="#documenter_cover" id="documenter_logo"></a>
+		<ol id="documenter_nav">
+			<li><a class="current" href="#documenter_cover">Welcome</a></li>
+			<li><a href="#Intro">Intro</a></li>
+			<li><a href="#Requirements">Requirements</a></li>
+			<li><a href="#TwitterDevelopers">Twitter Developers (API)<br />Account & APP Setup</a></li>
+			<li><a href="#Installation">Installation</a></li>
+            <li><a href="#Usage">Usage</a></li>
+            <li><a href="#TwitterSearch">Twitter Search Operators</a></li>
+            <li><a href="#languageCodes">Twitter Language Codes</a></li>
+		</ol>
+		<div id="documenter_copyright">Copyright Democode.net 2013		</div>
+	</div>
+<div id="documenter_content">
+	<section id="documenter_cover"><h1>PHP Twitter User Timeline & Search Plugin</h1><hr><ul><li>Created: 10/02/2013</li></li><li>By: Democode.net</li><li><a href="http://codecanyon.net/user/cawebstore">http://codecanyon.net/user/cawebstore</a></li><li>Email: <a href="mailto:support@democode.net">support@democode.net</a></li>
+    <li>Demo: <a href="http://www.democode.net/">http://www.democode.net</a></li>
+    </ul><p>
+
+Thank you for purchasing my script. If you have any questions that are beyond the scope of this help file, please feel free to email via Codecanyon <a href="http://codecanyon.net/user/cawebstore">here</a>. Thank you so much!</p></section>
+<section id="Intro">
+	<h3>Intro</h3><hr class="notop">
+<p>This PHP script enables you to add a Twitter user timeline and/or Twitter search results on your site. The script is easy to install, use and it's modifiable. You can add the script to your site by copying and pasting the PHP or jQuery code that is bundled in this software package, but before we begin and go over these steps, let's first look into what this script <a href="#Requirements">requires</a>.</p>
+</section>
+<section id="Requirements">
+	<h3>Requirements</h3><hr class="notop">
+<ul>
+<li>Register an account on the Twitter Developers website and create an app (more information can be found <a href="#TwitterDevelopers">here</a>)</li>
+<li>Make sure that your PHP version has the cURL and JSON extensions loaded (more information can be found here)</li>
+</ul>
+</section>
+<section id="TwitterDevelopers">
+	<h3>Register an account on the Twitter Developers website and create an app</h3><hr class="notop">
+<p>Since we will be using the Twitter API to retrieve user timeline and search data, it's necessary to have an account on the Twitter Developers website and to have an app created.</p>
+<p><strong>Step 1</strong> Go to: <a href="https://dev.twitter.com/" target="_blank">https://dev.twitter.com/</a></p>
+<p><strong>Step 2</strong> Sign in or create an account</p>
+<p><strong>Step 3</strong> Go to: <a href="https://dev.twitter.com/apps" target="_blank">https://dev.twitter.com/apps</a></p>
+<p><strong>Step 4</strong> Create a new app</p>
+<p><strong>Step 5</strong> Enter a name for the app</p>
+<p><strong>Step 6</strong> Enter a description for the app</p>
+<p><strong>Step 7</strong> Enter a URL for the app</p>
+<p><strong>Step 8 (optional)</strong> Enter an icon for the app</p>
+<p><strong>Step 9</strong> Choose Read only for the access type because this is all that this plugin requires</p>
+<p><strong>Step 10</strong> Leave the callback URL empty since this app shows tweets and search results. Therefore, it's not necessary for us to request sign in credentials etc.</p>
+<p><strong>Step 11</strong> After entering all necessary information, click on "Create your Twitter application".</p>
+<p><strong>Step 12 (very important)</strong> Then view your newly created app and copy and the following credentials into a text editor and keep this information handy for when we edit our configuration file in the <a href="#Installation">Installation</a> section of this instructional manual.</p>
+<ul>
+<li>Consumer key</li>
+<li>Consumer secret</li>
+<li>Access token</li>
+<li>Access token secret</li>
+</ul>
+</section>
+<section id="Installation">
+	<h3>Installation</h3><hr class="notop">
+<p><u>Upload files to server or web hosting account</u><br />Ok so now that we are ready to install the 'PHP Twitter User Timeline & Search Plugin script' on our web hosting account or server, we can decide on where to install the files. For example, if we were to install the script in the root section of our site, we would upload the "twitter_api_pkg" folder as well as all files and folders found within it, to the root of our site. Remember that the "twitter_api_pkg" can be found in the "php-twitter-user timeline-and-search-plugin" folder.</p>
+<p><u>Make the 'caches' folder writable</u><br />Twitter often sets limits on API requests and for this reason, it's always good to cache API requests on very active websites. Of course before we can cache any data, we must make sure that the cache folder is writable. To do this, locate the 'caches' folder which is located in the "twitter_api_pkg" folder and make sure that the permissions are set to 777.</p>
+<p><u>Configure your script</u><br />Since no two sites are alike, we must configure the 'PHP Twitter User Timeline & Search Plugin script' to work with our site. To begin, open the 'twitter_config.php' in a text editor and prepare to edit the lines of code in this file. The 'twitter_config.php' file can be found in the "twitter_api_pkg" folder. Below is an explanation of what each line of code does and how you can edit them.</p>
+<p><u>Line: define('TWITTER_API_PKG_DIR','/');</u><br />
+Replace "/" with the path of the directory in which the 'twitter_api_pkg' folder is installed. If installed in the root directory, leave as is.<a href="#TwitterDevelopers"><br />
+Account & APP Setup</a> of this manual.</p>
+<p><u>Line: define('TWITTER_CONSUMER_KEY', '*Consumer key');</u><br />Replace "*Consumer key" with the Consumer key that you copied from the Twitter website (this was explained in the <a href="#TwitterDevelopers">Twitter Developers (API)<br />Account & APP Setup</a> of this manual.</p>
+<p><u>Line: define('TWITTER_CONSUMER_SECRET', '*Consumer secret');</u><br />Replace "*Consumer secret" with the *Consumer secret that you copied from the Twitter website (this was explained in the <a href="#TwitterDevelopers">Twitter Developers (API)<br />Account & APP Setup</a> of this manual.</p>
+<p><u>Line: define('TWITTER_ACCESS_TOKEN', '*Access token');</u><br />Replace "*Access token" with the Access token that you copied from the Twitter website (this was explained in the <a href="#TwitterDevelopers">Twitter Developers (API)<br />Account & APP Setup</a> of this manual.</p>
+<p><u>Line: define('TWITTER_ACCESS_TOKEN_SECRET', '*Access token secret');</u><br />Replace "*Access token secret" with the Access token secret that you copied from the Twitter website (this was explained in the <a href="#TwitterDevelopers">Twitter Developers (API)<br />Account & APP Setup</a> of this manual.</p>
+<p><u>Line: define('TWITTER_CACHE_FOLDER', $_SERVER['DOCUMENT_ROOT'] . 'twitter_api_pkg/caches/twitter-');</u><br />
+  This is the directory in which user timeline activity is cached. Replace $_SERVER['DOCUMENT_ROOT'] . 'twitter_api_pkg/caches/twitter-' with the correct path. If you have this plugin installed in the root directory, the path may already be correct. If you'd prefer not to cache user timeline Tweets, you can turn off caching by modifying the following line:</p>
+<p>define('TWITTER_CACHE_TWEETS', true);<br />to<br />define('TWITTER_CACHE_TWEETS', false);</p>
+<p><u>Line: define('TWITTER_CACHE_TIME', 5);</u><br />the 5 represents 5 minutes. You can change this number by modifying it - keep in mind that the script only accepts cache time in minutes. Of course if you have TWITTER_CACHE_TWEETS set to false, this field will be ignored.</p>
+<p><u>Line: define('TWITTER_USER_TIMELINE_COUNT', 5);</u><br />Replace the number 5 with the number of tweets that you'd like to display or leave as is. Please keep in mind that 200 is the maximum number of tweets that can be displayed (Twitter set the limit to 200).</p>
+<p><u>Line: define('TWITTER_USER_TIMELINE_HYPERLINK_URLS', true);</u><br />Do you want URLs in your timeline to be automatically tranformed into clickable links? If yes, leave the value as is. If not, change the true to false. Keep in mind that links which have been "cut off" due to the link being at the end of a summarized tweet (due to the Tweet being too long), will not by hyperlinked (prevents broken links).</p>
+<p><u>Line: define('TWITTER_USER_TIMELINE_HYPERLINK_HASHTAGS', true);</u><br />When set to true, hashtags are hyperlinked. When set to false, hashtags are shown in plain text. Hyperlinks help people find tweets on Twitter which are related to the mentioned hashtag.</p>
+<p><u>Line: define('TWITTER_USER_TIMELINE_HYPERLINK_USER_MENTIONS', true);</u><br />When set to true, Twitter screen names which are mentioned in Tweets, are automatically hyperlinked. If set to false, Twitter screen names are shown in plain text.</p>
+<p><u>Line: define('TWITTER_CACHE_SEARCH_FOLDER', $_SERVER['DOCUMENT_ROOT'] . 'twitter_api_pkg/caches/twitter-');</u><br />
+  This is the directory in which Twitter search results are cached. Replace $_SERVER['DOCUMENT_ROOT'] . 'twitter_api_pkg/caches/twitter-' with the correct path. If you have this plugin installed in the root directory, the path may already be correct. If you'd prefer not to cache Twitter search results, you can turn off caching by modifying the following line:</p>
+<p>define('TWITTER_CACHE_SEARCH', true);<br />to<br />define('TWITTER_CACHE_SEARCH', false);</p>
+<p><u>Line: define('TWITTER_CACHE_SEARCH_TIME', 5);</u><br />the 5 represents 5 minutes. You can change this number by modifying it - keep in mind that the script only accepts cache time in minutes. Of course if you have TWITTER_CACHE_SEARCH set to false, this field will be ignored.</p>
+<p><u>Line: define('TWITTER_SEARCH_COUNT', 15);</u><br />Twitter has the default set at 15 and the maximum number of results that can be displayed is 100. If you set this value lower than 15, our script will automatically remove the excess number of results.</p>
+<p><u>Line: define('TWITTER_SEARCH_HYPERLINK_URLS', true);</u><br />Do you want URLs in your search feed to be automatically tranformed into clickable links? If yes, leave the value as is. If not, change the true to false. Keep in mind that links which have been "cut off" due to the link being at the end of a summarized tweet (due to the Tweet being too long), will not by hyperlinked (prevents broken links).</p>
+<p><u>Line: define('TWITTER_SEARCH_HYPERLINK_HASHTAGS', true);</u><br />When set to true, hashtags are hyperlinked. When set to false, hashtags are shown in plain text. Hyperlinks help people find tweets on Twitter which are related to the mentioned hashtag.</p>
+<p><u>Line: define('TWITTER_SEARCH_HYPERLINK_USER_MENTIONS', true);</u><br />When set to true, Twitter screen names which are mentioned in Tweets, are automatically hyperlinked. If set to false, Twitter screen names are shown in plain text.</p>
+<p><u>Line: define('TWITTER_SEARCH_RESULTS_TYPE', 'mixed');</u><br />How would you like the search results to be sorted? By default, the results are 'mixed' which means that a mix of recent and popular tweets are displayed. If you'd like to change the sort order, you can enter 'recent' or 'popular'.</p>
+<p><strong>Important!</strong><br />After you've made changes to your 'twitter_config.php', it's advised (as a safety precaution) that you set the permissions of the file to read only.</p>
+<p><strong>Now we are ready for action!</strong><br />Now that are script is ready for use, we can implement it into our existing scripts. For an explanation of how it all works, please proceed to the <a href="#Usage">Usage</a> section.</p>
+</section>
+<section id="Usage">
+	<h3>Usage</h3><hr class="notop">
+<p>In the "php-twitter-user timeline-and-search-plugin" folder you will find 6 example files:</p>
+<p><hr class="notop">
+<p><strong style="color:red;">index.php</strong><br />
+    <br />
+  In this file there are 3 examples on how to use this script, but before we cover the examples, let's look at which files we need to include for the script to function properly. Below are the PHP codes that you need to add to the top of the file that you wish to embed tweets into:</p>
+<p><strong>&lt;?php<br>
+  require_once &quot;twitter_api_pkg/twitter_config.php&quot;;<br>
+  require_once &quot;twitter_api_pkg/classes/twitterapirequest.php&quot;;<br>
+  require_once &quot;twitter_api_pkg/functions/twitter_user_timeline.php&quot;;<br>
+  require_once &quot;twitter_api_pkg/functions/twitter_search.php&quot;;<br>
+  ?&gt;</strong></p>
+<p>Note that you may need to modify the path of the files depending on where you are installing.</p>
+<p>Note that you only need to add line <strong>require_once &quot;twitter_api_pkg/functions/twitter_user_timeline.php&quot;;</strong> on pages that you will add Twitter user timeline results to.</p>
+<p> Also note that you only need to add line <strong>require_once &quot;twitter_api_pkg/functions/twitter_search.php&quot;;</strong> on pages that you will add Twitter search forms or search results to.</p>
+<p>Add this line into the head section (you may need to modify the path depending on where 'twitter_api_pkg' is installed):</p>
+<p><strong>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;twitter_api_pkg/twitter.css&quot;&gt;</strong></p>
+<p>Add the two lines below in your head section if you are adding a search form a Google map being shown:</p>
+<p><strong>&lt;script src=&quot;https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places&quot;&gt;&lt;/script&gt;<br>
+  &lt;script src=&quot;twitter_api_pkg/javascript/location_map_finder.js&quot;&gt;&lt;/script&gt;</strong></p>
+<p>(1) Add the line below on a page where you'd like to show a Twitter search form:</p>
+<p><strong>&lt;?php  echo twitter_generate_search_form('index.php',true,true,true,true,$_GET); ?&gt;</strong></p>
+<p>There are 5 variables that you can change on this function. Below is a list of each value explained.</p>
+<p><strong>Index.php</strong> is the file that we are send that form variables to. This can be any page. See <a href="#search_results_example">this section</a> for information on which lines of code you need to add to the page that you are send the variables to.</p>
+<p><strong>true</strong> do you want to show a languages select menu? If yes, then leave as true if no, then change to false.<br />
+<p><strong>true</strong> do you want to show a results type select menu? If yes, then leave as true if no, then change to false.<br />
+  <p><strong>true</strong> do you want to show coordinates inputs? If yes, then leave as true if no, then change to false.<br />
+  <p><strong>true</strong> do you want to show a Google map? If yes, then leave as true if no, then change to false.</p>
+  <p>(1.1) Paste the code below into the page that you'd like to send form variables to and show search results.</p>
+  <p id="search_results_example"><strong>&lt;?php echo twitter_search_php($_GET);?&gt;</strong></p>
+  <p>(2) Paste the code below into the page that you'd like to display user timeline results on:</p>
+  <p><strong>&lt;?php echo twitter_user_timeline_php('google');?&gt;</strong></p>
+  <p>Change 'google' to the screen name of the Twitter user that you'd like to display results for.</p>
+  <p>(3) Paste the code below into the page that you'd like to display Twitter search results on:</p>
+  <p><strong>&lt;?php echo twitter_search_php('New York','en','recent','40.757332,-73.955556,10mi'); ?&gt;</strong></p>
+  <p>There are 4 variables that you can change here:</p>
+  <p><strong>New York</strong> change this to your search query and remember that you can use search operators as well. For more info see <a href="#TwitterSearch">this section</a>.<br /><br />
+    <strong>en</strong> is the language. Leave empty for any language or change en to the language code of your choice. Remember that you can choose from these <a href="#languageCodes">language codes</a>.<br /><br />
+   <strong>recent</strong> is the results type (sort order). You can leave this empty. If left empty, the function will use the value you entered in the twitter_config.php file. If you wish to enter a value here, you may choose between recent, mixed or popular.<br /><br />
+ <strong>40.757332,-73.955556,10mi</strong> is the geocode. If left empty, the function will not filter tweets by distance. If a value is entered, the results will be filtered by coordinates. Note that Twitter seems to only return results filtered by distance when the results type &quot;recent&quot; is selected. Remember to enter values in this format for geocode:<br /><br />
+  &quot;latitude,longitude,radius&quot; radius units must be specified as either &quot;mi&quot; (miles) or &quot;km&quot; (kilometers).<br />
+  </p>
+  <hr class="notop">
+<p><strong style="color:red;">jquery_example.php</strong><br />
+    <br />
+  The above file contains jQuery example code. Note that the jQuery code embed options have a slight advantage over the PHP code embed options because results can be auto refreshed and pageload times might be faster when the Twitter API is slow to respond because your page doesn't wait on the Twitter API to respond.</p>
+<p>To start, add these PHP lines of code to the top of your page:</p>
+<p><strong>&lt;?php<br>
+  require_once &quot;twitter_api_pkg/twitter_config.php&quot;;<br>
+  require_once &quot;twitter_api_pkg/functions/twitter_user_timeline.php&quot;;<br>
+  require_once &quot;twitter_api_pkg/functions/twitter_search.php&quot;;<br>
+  ?&gt;</strong></p>
+<p>Note that you may need to modify the path of the files depending on where you are installing.</p>
+<p>Note that you only need to add line <strong>require_once &quot;twitter_api_pkg/functions/twitter_user_timeline.php&quot;;</strong> on pages that you will add Twitter user timeline results to.</p>
+<p> Also note that you only need to add line <strong>require_once &quot;twitter_api_pkg/functions/twitter_search.php&quot;;</strong> on pages that you will add Twitter search forms or search results to.</p>
+<p>Add this line into the head section (you may need to modify the path depending on where 'twitter_api_pkg' is installed):</p>
+<p><strong>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;twitter_api_pkg/twitter.css&quot;&gt;</strong></p>
+<p>Add this line into the head section if you don't already have the jQuery library added to your page (you may need to modify the path depending on where 'twitter_api_pkg' is installed):</p>
+<p><strong>&lt;script src=&quot;twitter_api_pkg/javascript/jquery-1.10.2.min.js&quot;&gt;&lt;/script&gt;</strong></p>
+<p>Add this line into the head section if you plan on showing a user timeline on the page:</p>
+<p><strong>&lt;?php echo twitter_user_timeline_jquery('envato',0);?&gt;</strong></p>
+<p>Change the following variables based on your needs.</p>
+<p><strong>envato</strong> can be changed to the Twitter screen name that you'd like to show timeline results for.</p>
+<p><strong>0</strong> can be changed to the number of seconds that you'd like to auto refresh results in. Note that this field only accepts seconds so if you'd like to enter 2 minutes enter 120 here.</p>
+<p>Add this line into the head section if you plan on showing a search results on the page:</p>
+<p><strong>&lt;?php echo twitter_search_jquery('traffic',0,'en','recent','40.757332,-73.955556,10mi');?&gt;</strong></p>
+<p><strong>traffic</strong> change this to your search query and remember that you can use search operators as well. For more info see <a href="#TwitterSearch">this section</a>.<br /><br />
+    <strong>en</strong> is the language. Leave empty for any language or change en to the language code of your choice. Remember that you can choose from these <a href="#languageCodes">language codes</a>.<br /><br />
+   <strong>recent</strong> is the results type (sort order). You can leave this empty. If left empty, the function will use the value you entered in the twitter_config.php file. If you wish to enter a value here, you may choose between recent, mixed or popular.<br /><br />
+ <strong>40.757332,-73.955556,10mi</strong> is the geocode. If left empty, the function will not filter tweets by distance. If a value is entered, the results will be filtered by coordinates. Note that Twitter seems to only return results filtered by distance when the results type &quot;recent&quot; is selected. Remember to enter values in this format for geocode:<br /><br />
+  &quot;latitude,longitude,radius&quot; radius units must be specified as either &quot;mi&quot; (miles) or &quot;km&quot; (kilometers).</p>
+<p>Add the below line of code to the body section of your page (where you'd like to show user timeline results):</p>
+<p><strong>&lt;div id=&quot;timeline_tweets_jquery&quot;&gt;&lt;/div&gt;</strong></p>
+<p>Add the below line of code to the body section of your page (where you'd like to show search results):</p>
+<p><strong>&lt;div id=&quot;twitter_search_results_jquery&quot;&gt;&lt;/div&gt;</strong><br />
+</p>
+<hr class="notop">
+<p><strong style="color:red;">twitter_api_pkg/twitter.css</strong><br />
+    <br />
+  The CSS file can easily be edited to blend with your site's design. The CSS file is in the twitter_api_pkg folder. Below is an explanation of each link of code:<br />
+  <br />
+    <strong>div.tweet {<br>
+      clear:both;border-top:thin solid #ddd;<br>
+      }</strong><br />
+  <br />
+  The lines above changes the style of the rows of Tweets.<br />
+  <br />
+  The CSS file can easily be edited to blend with your site's design. The CSS file is in the twitter_api_pkg folder. Below is an explanation of each link of code:<br />
+  <br />
+  <strong>.tweet_pic {<br>
+    float:left;padding:20px;<br>
+    }</strong><br />
+  <br />
+  The lines above changes the way the image of Twitter users is displayed.<br />
+  <br />
+  <strong>.tweet_name {<br>
+    width:60%;float:left;padding:15px;<br>
+    }</strong><br />
+  <br />
+  The lines above changes the way the Twitter text (tweets, screen names etc.) is displayed and positioned.
+  <br />
+  <br />
+  <strong>#twitter_search_results{<br>
+    clear:both;width:100%;margin:10px;color:#333333;<br>
+    }</strong><br />
+  <br />
+  The lines above changes the look of the div with contains the search results. Here you can change the width and positioning so that it blends with your site.  </p>
+<p><strong>#twitter_search_results a { <br>
+  color:#0385b4;<br>
+  }</strong></p>
+<p>The color of the links in search results. <br />
+  <br />
+  <strong>#timeline_tweets{<br>
+    clear:both;width:100%;margin:10px;color:#333333;<br>
+    }</strong><br />
+    <br />
+  The lines above changes the look of the div with contains the user timeline results. Here you can change the width and positioning so that it blends with your site. </p>
+<p><strong>#timeline_tweets a { <br>
+  color:#0385b4;<br>
+  }</strong><br />
+    </p>
+<p>The color of the links in Twitter user timeline results.</p>
+<p>
+  <strong>span.highlight<br>
+    {<br>
+    font-weight: 700;<br>
+    }<br>
+    span.highlight_ul<br>
+    {<br>
+    font-weight: 700;<br>
+    text-decoration:underline;<br>
+    }</strong><br />
+  <br />
+  The lines above changes the way keywords on search results pages emphasized. </p>
+<p><strong>#location{<br>
+  margin:10px 0;<br>
+  padding:10px 0 10px 5px;<br>
+  background-color:#d0e7ff;<br>
+  }</strong></p>
+<p>The lines above change the box that coordinates fields are in on the search form.</p>
+<p><strong>#map_canvas{<br>
+width: 683px;<br>
+height: 300px;<br>
+}</strong></p>
+<p>How large do you want the Google map to be?</p>
+<p><strong>#map_holder{<br>
+  padding-top: 25px;<br>
+  }
+  </strong></p>
+<p>Top padding for the Google map.</p>
+<p><strong>#panel{<br>
+  width: 683px;<br>
+  padding:10px 0;<br>
+  }
+  #target{<br>
+  width: 683px;<br>
+  }</strong></p>
+<p>Google search box styling.</p>
+<p><strong>#map_help{<br>
+  text-align:left;<br>
+  }</strong></p>
+<p>Help text that is displayed above the Google search box and map.</p>
+<p><strong>#help{<br>
+  display:none;<br>
+  color:#333333;<br>
+  font-size:14px;<br>
+  margin-top:10px;<br>
+  }#help td{<br>
+  padding-right:10px;<br>
+  }a.help_link{<br>
+  color:#0385b4;<br>
+  }</strong></p>
+<p>Search operator help link and box styling.</p>
+</section>
+<section id="TwitterSearch">
+	<h3>Twitter Search Operators</h3><hr class="notop">
+    <table>
+  <tbody>
+    <tr><td>twitter search</td><td>containing both "twitter" and "search". This is the default operator.</td></tr>
+    <tr><td><b>"</b>happy hour<b>"</b></td><td>containing the exact phrase "happy hour".</td></tr>
+    <tr><td>love <b>OR</b> hate</td><td>containing either "love" or "hate" (or both).</td></tr>
+    <tr><td>beer <b>-</b>root</td><td>containing "beer" but not "root".</td></tr>
+    <tr><td><b>#</b>haiku</td><td>containing the hashtag "haiku".</td></tr>
+    <tr><td><b>from:</b>alexiskold</td><td>sent from person "alexiskold".</td></tr>
+    <tr><td><b>to:</b>techcrunch</td><td>sent to person "techcrunch".</td></tr>
+    <tr><td><b>@</b>mashable</td><td>referencing person "mashable".</td></tr>
+    <tr><td>"happy hour" <b>near:</b>"san francisco"</td><td>containing the exact phrase "happy hour" and sent near "san francisco".</td></tr>
+    <tr><td><b>near:</b>NYC <b>within:</b>15mi</td><td>sent within 15 miles of "NYC".</td></tr>
+    <tr><td>superhero <b>since:</b>2010-12-27</td><td>containing "superhero" and sent since date "2010-12-27" (year-month-day).</td></tr>
+    <tr><td>ftw <b>until:</b>2010-12-27</td><td>containing "ftw" and sent up to date "2010-12-27".</td></tr>
+    <tr><td>movie -scary <b>:)</b></td><td>containing "movie", but not "scary", and with a positive attitude.</td></tr>
+    <tr><td>flight <b>:(</b></td><td>containing "flight" and with a negative attitude.</td></tr>
+    <tr><td>traffic <b>?</b></td><td>containing "traffic" and asking a question.</td></tr>
+    <tr><td>hilarious <b>filter:links</b></td><td>containing "hilarious" and linking to URLs.</td></tr>
+    <tr><td>news <b>source:twitterfeed</b></td><td>containing "news" and entered via TwitterFeed</td></tr>
+  </tbody>
+</table>
+</section>
+<section id="languageCodes">
+	<h3>Twitter Language Codes</h3><hr class="notop">
+    <table>
+  <tbody>
+      <tr><td>all</td><td>Any</td></tr>
+              <tr><td>am</td><td>Amharic</td></tr>
+              <tr><td>ar</td><td>Arabic</td></tr>
+			  <tr><td>hy</td><td>Armenian</td></tr>
+              <tr><td>bn</td><td>Bengali</td></tr>
+			  <tr><td>bg</td><td>Bulgarian</td></tr>
+              <tr><td>chr</td><td>Cherokee</td></tr>
+			  <tr><td>zh</td><td>Chinese</td></tr>
+              <tr><td>da</td><td>Danish</td></tr>
+			  <tr><td>nl</td><td>Dutch</td></tr>
+			  <tr><td>en</td><td>English</td></tr>
+              <tr><td>de</td><td>German</td></tr>
+			  <tr><td>ka</td><td>Georgian</td></tr>
+			  <tr><td>el</td><td>Greek</td></tr>
+              <tr><td>gu</td><td>Gujarati</td></tr>
+              <tr><td>fi</td><td>Finnish</td></tr>
+              <tr><td>fr</td><td>French</td></tr>
+              <tr><td>iw</td><td>Hebrew</td></tr>
+              <tr><td>hi</td><td>Hindi</td></tr>
+              <tr><td>hu</td><td>Hungarian</td></tr>
+              <tr><td>is</td><td>Icelandic</td></tr>
+			  <tr><td>in</td><td>Indonesian</td></tr>
+			  <tr><td>iu</td><td>Inuktitut</td></tr>
+              <tr><td>it</td><td>Italian</td></tr>
+              <tr><td>ja</td><td>Japanese</td></tr>
+              <tr><td>kn</td><td>Kannada</td></tr>
+			  <tr><td>km</td><td>Khmer</td></tr>
+              <tr><td>ko</td><td>Korean</td></tr>
+              <tr><td>lo</td><td>Lao</td></tr>
+              <tr><td>lt</td><td>Lithuanian</td></tr>
+              <tr><td>ml</td><td>Malayalam</td></tr>
+			  <tr><td>dv</td><td>Maldivian</td></tr>
+              <tr><td>my</td><td>Myanmar</td></tr>
+              <tr><td>ne</td><td>Nepali</td></tr>
+              <tr><td>no</td><td>Norwegian</td></tr>
+              <tr><td>or</td><td>Oriya</td></tr>
+              <tr><td>pa</td><td>Panjabi</td></tr>
+              <tr><td>pl</td><td>Polish</td></tr>
+              <tr><td>pt</td><td>Portuguese</td></tr>
+			  <tr><td>fa</td><td>Persian</td></tr>
+              <tr><td>ru</td><td>Russian</td></tr>
+              <tr><td>si</td><td>Sinhala</td></tr>
+			  <tr><td>es</td><td>Spanish</td></tr>
+              <tr><td>sv</td><td>Swedish</td></tr>
+			  <tr><td>tl</td><td>Tagalog</td></tr>
+			  <tr><td>ta</td><td>Tamil</td></tr>
+			  <tr><td>te</td><td>Telugu</td></tr>
+			  <tr><td>th</td><td>Thai</td></tr>
+			  <tr><td>bo</td><td>Tibetan</td></tr>
+              <tr><td>tr</td><td>Turkish</td></tr>
+              <tr><td>ur</td><td>Urdu</td></tr>
+              <tr><td>vi</td><td>Vietnamese</td></tr>
+  </tbody>
+</table>
+</section>
+</div>
+</body>
+</html>

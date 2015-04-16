@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Twitter</title>
+<title>Facebook</title>
 <link href="../css/estilo.css" rel="stylesheet" type="text/css" />
+<?php
+require "../valida.php";
+?>
 </head>
 
 <body>
 <?php  if(isset($_SESSION['user'])) { ?>
-<a href="logout.php">
+<a href="../logout.php">
 <button class="btn btn-primary btn-xs" type="button" > Logout </button>
 </a>
 <button class="btn btn-primary btn-xs" type="button" ><?php echo  strtoupper("Bem Vindo: ".$_SESSION['user']."")  ?> </button>
